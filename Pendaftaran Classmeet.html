@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Class Meeting OSIS SMPN 3 Payakumbuh</title>
+    <style>
+        /* (Sisipkan semua CSS dari kode asli Anda di sini) */
+        body {
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(135deg, #f0f8ff 0%, #4682b4 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(70, 130, 180, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            color: white;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h1 {
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            text-align: left;
+            font-weight: bold;
+        }
+        input, select {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Times New Roman', serif;
+            font-size: 16px;
+            transition: box-shadow 0.3s ease;
+        }
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        #lagu-container {
+            display: none;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px;
+            background-color: #ffffff;
+            color: #4682b4;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.05);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pendaftaran Class Meeting OSIS SMPN 3 Payakumbuh</h1>
+        <form action="#" method="post" id="registrationForm">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="kelas">Kelas:</label>
+            <select id="kelas" name="kelas" required>
+                <option value="">Pilih Kelas</option>
+                <option value="7.1">7.1</option>
+                <option value="7.2">7.2</option>
+                <option value="7.3">7.3</option>
+                <option value="7.4">7.4</option>
+                <option value="7.5">7.5</option>
+                <option value="7.6">7.6</option>
+                <option value="7.7">7.7</option>
+                <option value="7.8">7.8</option>
+                <option value="7.9">7.9</option>
+                <option value="8.1">8.1</option>
+                <option value="8.2">8.2</option>
+                <option value="8.3">8.3</option>
+                <option value="8.4">8.4</option>
+                <option value="8.5">8.5</option>
+                <option value="8.6">8.6</option>
+                <option value="8.7">8.7</option>
+                <option value="8.8">8.8</option>
+                <option value="9.1">9.1</option>
+                <option value="9.2">9.2</option>
+                <option value="9.3">9.3</option>
+                <option value="9.4">9.4</option>
+                <option value="9.5">9.5</option>
+                <option value="9.6">9.6</option>
+                <option value="9.7">9.7</option>
+                <option value="9.8">9.8</option>
+                <option value="9.9">9.9</option>
+            </select>
+
+            <label for="konfirmasi">Konfirmasi Kehadiran:</label>
+            <select id="konfirmasi" name="konfirmasi" required>
+                <option value="">Pilih Konfirmasi</option>
+                <option value="ya">Ya, Saya Akan Hadir</option>
+                <option value="tidak">Tidak, Saya Tidak Bisa Hadir</option>
+            </select>
+
+            <label for="lomba">Pilihan Lomba (Opsional):</label>
+            <select id="lomba" name="lomba">
+                <option value="">Tidak Ikut Lomba</option>
+                <option value="solo song">Solo Song</option>
+                <option value="tebak gaya">Tebak Gaya</option>
+            </select>
+
+            <div id="lagu-container">
+                <label for="lagu">Lagu yang Akan Dinanyikan:</label>
+                <input type="text" id="lagu" name="lagu" placeholder="Masukkan judul lagu">
+            </div>
+
+            <button type="submit">Daftar</button>
+        </form>
+    </div>
+
+    <script>
+        // Script asli untuk toggle lagu
+        document.getElementById('lomba').addEventListener('change', function() {
+            const lombaValue = this.value;
+            const laguContainer = document.getElementById('lagu-container');
+            if (lombaValue === 'solo song') {
+                laguContainer.style.display = 'block';
+            } else {
+                laguContainer.style.display = 'none';
+            }
+        });
+
+        // Script baru untuk menyimpan data dan redirect ke halaman hasil
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah submit default
+
+            // Ambil data dari form
+            const nama = document.getElementById('nama').value;
+            const kelas = document.getElementById('kelas').value;
+            const konfirmasi = document.getElementById('konfirmasi').value;
+            const lomba = document.getElementById('lomba').value;
+            const lagu = document.getElementById('lagu').value || 'Tidak ada';
+
+            // Buat objek data
+            const data = {
+                nama: nama,
+                kelas: kelas,
+                konfirmasi: konfirmasi,
+                lomba: lomba,
+                lagu: lagu,
+                timestamp: new Date().toLocaleString()
+            };
+
+            // Simpan ke localStorage (sebagai array)
+            let registrations = JSON.parse(localStorage.getItem('registrations')) || [];
+            registrations.push(data);
+            localStorage.setItem('registrations', JSON.stringify(registrations));
+
+            // Redirect ke halaman hasil (ganti 'hasil.html' dengan nama file hasil Anda)
+            window.location.href = 'hasil.html';
+        });
+    </script>
+</body>
+</html>
